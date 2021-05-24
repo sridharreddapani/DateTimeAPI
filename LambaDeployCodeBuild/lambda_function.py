@@ -6,7 +6,7 @@ def lambda_handler(event, context):
     now = datetime.now().isoformat()
     data['Name'] = os.environ["Name"]
     data['DateTime'] = now
-    data['Version'] = "Version 1.0.2a"
+    data['Version'] = "Version 1.0.4a"
     return {
         'statusCode': 200,
         'body': json.dumps(data)
