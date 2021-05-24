@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Nothing in install.."
+  build:
+    commands:
+      - cd LambaDeployCodeBuild
+      - echo "Zipping deployment package..."
+      - zip -g deployment_package.zip lambda_function.py
+  post_build:
+    commands:
+      - echo "Updating lambda Function..."
+      - aws lambda update-function-code --function-name DateTime --zip-file fileb://deployment_package.zip
+      - echo "Lamba updated Successfully"
